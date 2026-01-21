@@ -1,0 +1,39 @@
+{#-
+Provides the visual style definition and global constraints for icon generation.
+Rendered as part of the style_prompt passed to icon_brief_request.j2.
+
+Variables:
+- category: Category name for the icon.
+- description: Description of the category.
+
+Style: Bold, rounded, friendly black glyph on transparent background.
+-#}
+Style definition (icon body only)
+- Bold, rounded, friendly UI glyph style
+
+Global constraints (must follow exactly)
+- Output: icon body only (no background tile/plate/container, no rounded-square backdrop)
+- Format: 1:1 square, centered composition, generous padding
+- Foreground: single solid color #000000 (pure black)
+- Fill: fully opaque solid black; avoid translucency, shading, or partially open strokes
+- Background: transparent
+- Flat 2D vector look, not 3D, not photorealistic
+- No gradients, no shadows, no lighting, no textures
+- No text, no numbers, no letters, no watermarks
+
+Core shape language
+- Use thick, uniform visual weight across all elements; favor solid fills, and only use thick rounded outlines when necessary
+- Round caps and round joins everywhere; no sharp corners, spikes, or pointed tips
+- Smooth, highly simplified geometry; keep total stroke/segment count low (e.g., limbs as single bold strokes, equipment as 1–2 clean primitives)
+- Prefer closed, continuous forms; avoid broken strokes
+- Express details via a few negative-space cut-outs using rounded holes/dots or 1–3 thick inner strokes; avoid multiple parallel strokes or busy tubing
+- No hairline strokes; avoid tiny fragments that blur at small sizes
+- Single main subject; avoid secondary elements unless essential
+
+Subject conventions
+- People/sports: circular head + thick rounded limbs/torso, simple readable pose silhouette
+- Objects/food: thick rounded outline with a clean hollow interior, plus 0–3 simple interior cut-outs
+
+Business context:
+- Category: {{ category }}
+- Description: {{ description }}
